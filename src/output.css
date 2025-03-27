@@ -13,7 +13,10 @@
     --color-gray-800: oklch(0.278 0.033 256.848);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-xs: 20rem;
+    --container-sm: 24rem;
     --container-md: 28rem;
+    --container-lg: 32rem;
     --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
@@ -1352,6 +1355,9 @@
       margin-block-start: 0;
     }
   }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
   }
@@ -1360,6 +1366,16 @@
   }
   .mt-30 {
     margin-top: calc(var(--spacing) * 30);
+  }
+  .fieldset-legend {
+    margin-bottom: calc(0.25rem * -1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(0.25rem * 2);
+    padding-block: calc(0.25rem * 2);
+    color: var(--color-base-content);
+    font-weight: 600;
   }
   .footer-title {
     margin-bottom: calc(0.25rem * 2);
@@ -1468,6 +1484,23 @@
     :where(p) {
       flex-grow: 1;
     }
+  }
+  .fieldset-label {
+    display: flex;
+    align-items: center;
+    gap: calc(0.25rem * 1.5);
+    color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+    &:has(input) {
+      cursor: pointer;
+    }
+  }
+  .fieldset {
+    display: grid;
+    gap: calc(0.25rem * 1.5);
+    padding-block: calc(0.25rem * 1);
+    font-size: 0.75rem;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
   }
   .card-actions {
     display: flex;
@@ -1600,6 +1633,9 @@
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
@@ -1609,17 +1645,29 @@
   .h-15 {
     height: calc(var(--spacing) * 15);
   }
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
   .min-h-fit {
     min-height: fit-content;
   }
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
   .w-5xl {
     width: var(--container-5xl);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
   }
   .w-10 {
     width: calc(var(--spacing) * 10);
@@ -1630,14 +1678,29 @@
   .w-15 {
     width: calc(var(--spacing) * 15);
   }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
   .w-96 {
     width: calc(var(--spacing) * 96);
+  }
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
   }
+  .w-lg {
+    width: var(--container-lg);
+  }
   .w-md {
     width: var(--container-md);
+  }
+  .w-sm {
+    width: var(--container-sm);
+  }
+  .w-xs {
+    width: var(--container-xs);
   }
   .max-w-2xl {
     max-width: var(--container-2xl);
@@ -1752,11 +1815,23 @@
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
   .gap-30 {
     gap: calc(var(--spacing) * 30);
   }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
+  }
+  .rounded-box {
+    border-radius: var(--radius-box);
+  }
+  .rounded-box {
+    border-radius: var(--radius-box);
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -1784,6 +1859,12 @@
     --tw-border-style: none;
     border-style: none;
   }
+  .border-base-300 {
+    border-color: var(--color-base-300);
+  }
+  .border-transparent {
+    border-color: transparent;
+  }
   .border-b-gray-200 {
     border-bottom-color: var(--color-gray-200);
   }
@@ -1792,6 +1873,9 @@
   }
   .bg-base-100 {
     background-color: var(--color-base-100);
+  }
+  .bg-base-200 {
+    background-color: var(--color-base-200);
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
@@ -1816,6 +1900,9 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
@@ -1974,6 +2061,13 @@
   .btn-primary {
     --btn-color: var(--color-primary);
     --btn-fg: var(--color-primary-content);
+  }
+  .hover\:text-green-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-green-500);
+      }
+    }
   }
   .hover\:text-green-700 {
     &:hover {
