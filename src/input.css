@@ -15,3 +15,7 @@ body {
 #menu ul li {
   @apply hover:text-green-700;
 }
+
+#album img {
+  @apply rounded-xl;
+}
